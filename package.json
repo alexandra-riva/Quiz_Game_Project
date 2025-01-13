@@ -1,0 +1,12 @@
+{
+  "name": "quiz_game_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "build": "echo 'No build step required' && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

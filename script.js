@@ -88,6 +88,9 @@ async function initQuiz() {
     if (questions && questions.length > 0) {
       displayQuestion();
       updateScore(); 
+      document.getElementById('restart').style.display = 'none';
+      document.getElementById('next').style.display = 'none';
+      document.getElementById('error').textContent = '';
     } else {
       throw new Error('No questions received from the API');
     }
@@ -112,7 +115,18 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('feedback').style.display = 'none';
     } else {
       displayError(`That's a wrap! Your score is: ${score} out of ${questions.length}`);
+      document.getElementById('restart').style.display = 'block';
+      document.getElementById('next').style.display = 'none';
     }
+  });
+
+  document.getElementById('restart').addEventListener('click', () => {
+    score = 0;
+    currentQuestionIndex = 0;
+    document.getElementById('feedback').style.display = 'none';
+    document.getElementById('restart').style.display = 'none';
+    document.getElementById('error').textContent = '';
+    initQuiz();
   });
 
   initQuiz();
