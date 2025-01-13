@@ -50,10 +50,10 @@ function handleAnswer(selectedAnswer) {
   });
 
   if (selectedAnswer === question.correct_answer) {
-    displayFeedback('Correct!');
+    displayFeedback('Nailed it!');
     score++; 
   } else {
-    displayFeedback('Incorrect. The correct answer is: ' + decodeHTMLEntities(question.correct_answer));
+    displayFeedback('Nope! The correct answer is: ' + decodeHTMLEntities(question.correct_answer));
   }
 
   document.getElementById('next').style.display = 'block';
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('next').style.display = 'none';
       document.getElementById('feedback').style.display = 'none';
     } else {
-      displayError(`Quiz completed! Final score: ${score} out of ${questions.length}`);
+      displayError(`That's a wrap! Your score is: ${score} out of ${questions.length}`);
     }
   });
 
