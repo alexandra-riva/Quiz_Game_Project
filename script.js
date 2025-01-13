@@ -2,7 +2,6 @@ let currentQuestionIndex = 0;
 let questions = [];
 let score = 0;
 
-// Shuffle array function
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -36,7 +35,6 @@ function displayQuestion() {
     optionsContainer.appendChild(button);
   });
 
-  // Update progress indicator
   updateProgress();
 }
 
@@ -47,19 +45,19 @@ function handleAnswer(selectedAnswer) {
   buttons.forEach(button => {
     button.disabled = true;
     if (button.textContent === decodeHTMLEntities(question.correct_answer)) {
-      button.style.backgroundColor = 'green';
+      button.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--correct-color').trim();
     }
   });
 
   if (selectedAnswer === question.correct_answer) {
     displayFeedback('Correct!');
-    score++; // Increment score for correct answer
+    score++; 
   } else {
     displayFeedback('Incorrect. The correct answer is: ' + decodeHTMLEntities(question.correct_answer));
   }
 
   document.getElementById('next').style.display = 'block';
-  updateScore(); // Update the score display
+  updateScore(); 
 }
 
 function displayFeedback(message) {
@@ -89,7 +87,7 @@ async function initQuiz() {
     questions = await fetchQuestions();
     if (questions && questions.length > 0) {
       displayQuestion();
-      updateScore(); // Initialize score display
+      updateScore(); 
     } else {
       throw new Error('No questions received from the API');
     }

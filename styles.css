@@ -1,19 +1,19 @@
 :root {
-    --bg-color: #f0f4f8;
+    --bg-color: #f0f7f4;
     --text-color: #2d3748;
-    --primary-color: #6b7280;
-    --accent-color: #4a5568;
-    --correct-color: #48bb78;
-    --incorrect-color: #f56565;
-  }
+    --primary-color: #4A4E58;
+    --secondary-color: #4a5568;
+    --tertiary-color: #D0D0D0;
+    --correct-color:  #D0F0C0;
+}
   
-  * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
   
-  body {
+body {
     font-family: 'Lexend', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -23,43 +23,43 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-  }
+}
   
-  .quiz-container {
+.quiz-container {
     width: 100%;
     max-width: 800px;
     padding: 40px;
     text-align: center;
-  }
+}
   
-  header h1 {
+header h1 {
     font-size: 2.5rem;
-    color: var(--accent-color);
+    color: var(--secondary-color);
     margin-bottom: 30px;
     font-weight: 600;
-  }
+}
   
-  #progress, #score {
+#progress, #score {
     color: var(--primary-color);
     margin-bottom: 20px;
     font-weight: 300;
-  }
+}
   
-  #question {
+#question {
     font-size: 1.8rem;
-    color: var(--accent-color);
+    color: var(--secondary-color);  
     margin-bottom: 30px;
     font-weight: 400;
-  }
+}
   
-  #options {
+#options {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     margin-bottom: 30px;
-  }
+}
   
-  #options button {
+#options button {
     background-color: white;
     border: 2px solid var(--primary-color);
     color: var(--text-color);
@@ -68,36 +68,31 @@
     font-size: 1rem;
     transition: all 0.3s ease;
     cursor: pointer;
-  }
+}
   
-  #options button:hover {
-    background-color: var(--primary-color);
+#options button:hover {
+    background-color: var(--secondary-color); 
     color: white;
-  }
+}
   
-  #options button:disabled {
-    background-color: #e2e8f0;
-    color: #718096;
+#options button:disabled {
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
     cursor: not-allowed;
-  }
+}
   
-  #options button.correct {
+#options button.correct {
     background-color: var(--correct-color);
     color: white;
-  }
+}
   
-  #options button.incorrect {
-    background-color: var(--incorrect-color);
-    color: white;
-  }
-  
-  #feedback {
+#feedback {
     margin-bottom: 20px;
     font-weight: 600;
-  }
+}
   
-  #next {
-    background-color: var(--accent-color);
+#next {
+    background-color: var(--secondary-color); 
     color: white;
     border: none;
     padding: 12px 24px;
@@ -106,20 +101,14 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     display: none;
-  }
+}
   
-  #next:hover {
+#next:hover {
     background-color: var(--primary-color);
-  }
+}
   
-  #error {
-    color: var(--incorrect-color);
-    margin-top: 20px;
-  }
-  
-  @media (max-width: 600px) {
-    #options {
-      grid-template-columns: 1fr;
-    }
-  }
-  
+@media (max-width: 600px) {
+   #options {
+       grid-template-columns: 1fr; 
+   }
+}
